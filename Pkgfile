@@ -1,4 +1,16 @@
+# Description:	drawterm
+# URL:		http://drawterm.9front.org
+# Maintainer:	Sean Hinchee, henesy dot dev at gmail dot com
+
 name=drawterm
-
 version=dc703b3438f9
+release=1
+source=(https://code.9front.org/hg/drawterm/archive/dc703b3438f9.tar.gz)
 
+build() {
+	cd $name-$version
+	make
+	cp drawterm $PKG/usr/local/bin/
+	cp drawterm.1 $PKG/usr/local/man/man1/
+	rm -rf $PKG/usr/info
+}
