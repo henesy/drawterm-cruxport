@@ -9,7 +9,8 @@ source=(https://code.9front.org/hg/drawterm/archive/dc703b3438f9.tar.gz)
 
 build() {
 	cd $name-$version
-	make
+	CONF=unix make
+	mkdir -p $PKG/usr/local/bin $PKG/usr/local/man/man1
 	cp drawterm $PKG/usr/local/bin/
 	cp drawterm.1 $PKG/usr/local/man/man1/
 	rm -rf $PKG/usr/info
